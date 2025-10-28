@@ -170,7 +170,6 @@ const Experience = () => {
                 <span className="skill-item">TypeScript</span>
                 <span className="skill-item">HTML5</span>
                 <span className="skill-item">CSS3</span>
-                <span className="skill-item">Sass</span>
                 <span className="skill-item">Tailwind CSS</span>
               </div>
             </div>
@@ -179,6 +178,8 @@ const Experience = () => {
               <h3>Backend</h3>
               <div className="skill-items">
                 <span className="skill-item">Node.js</span>
+                <span className="skill-item">.NET</span>
+                <span className="skill-item">C#</span>
                 <span className="skill-item">Express</span>
                 <span className="skill-item">Python</span>
                 <span className="skill-item">Django</span>
@@ -195,11 +196,11 @@ const Experience = () => {
                 <span className="skill-item">Git</span>
                 <span className="skill-item">Docker</span>
                 <span className="skill-item">AWS</span>
-                <span className="skill-item">Jest</span>
-                <span className="skill-item">Webpack</span>
-                <span className="skill-item">Figma</span>
+                <span className="skill-item">Azure</span>
                 <span className="skill-item">Agile</span>
                 <span className="skill-item">Scrum</span>
+                <span className="skill-item">CI/CD</span>
+                <span className="skill-item">Figma</span>
               </div>
             </div>
           </div>
