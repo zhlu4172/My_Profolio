@@ -3,6 +3,7 @@ import './MainPage.css';
 
 const MainPage = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const openVideoModal = () => {
     setIsVideoModalOpen(true);
@@ -10,6 +11,14 @@ const MainPage = () => {
 
   const closeVideoModal = () => {
     setIsVideoModalOpen(false);
+  };
+
+  const openContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+
+  const closeContactModal = () => {
+    setIsContactModalOpen(false);
   };
 
   return (
@@ -42,14 +51,14 @@ const MainPage = () => {
               </p>
             </div>
             <div className="hero-buttons">
-              <button className="btn btn-primary">View My Work</button>
-              <button className="btn btn-secondary">Contact Me</button>
+              <a href="#projects" className="btn btn-primary">View My Work</a>
+              <button className="btn btn-secondary" onClick={openContactModal}>Contact Me</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="projects-section">
+      <section id="projects" className="projects-section">
         <div className="container">
           <h2 className="section-title">Featured Projects</h2>
           <div className="projects-grid">
@@ -248,6 +257,57 @@ const MainPage = () => {
             <div className="video-info">
               <h3>Love Map Demo</h3>
               <p>Watch the interactive 3D globe and travel tracking features in action!</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contact Modal */}
+      {isContactModalOpen && (
+        <div className="contact-modal-overlay" onClick={closeContactModal}>
+          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="contact-modal-close" onClick={closeContactModal}>
+              ×
+            </button>
+            <div className="contact-content">
+              <h3>Get In Touch</h3>
+              <p>I'd love to hear from you! Feel free to reach out.</p>
+              
+              <div className="contact-info">
+                <div className="contact-item">
+                  <span className="contact-icon">📧</span>
+                  <div className="contact-details">
+                    <h4>Email</h4>
+                    <a href="mailto:luzhuyi13169@gmail.com">luzhuyi13169@gmail.com</a>
+                  </div>
+                </div>
+                
+                <div className="contact-item">
+                  <span className="contact-icon">📱</span>
+                  <div className="contact-details">
+                    <h4>Phone</h4>
+                    <a href="tel:+61412345678">+61 406 418 613</a>
+                  </div>
+                </div>
+                
+                <div className="contact-item">
+                  <span className="contact-icon">📍</span>
+                  <div className="contact-details">
+                    <h4>Location</h4>
+                    <p>Sydney, Australia</p>
+                  </div>
+                </div>
+                
+                <div className="contact-item">
+                  <span className="contact-icon">💼</span>
+                  <div className="contact-details">
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/emma-lu-703646202/" target="_blank" rel="noopener noreferrer">
+                    https://www.linkedin.com/in/emma-lu-703646202/ ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
