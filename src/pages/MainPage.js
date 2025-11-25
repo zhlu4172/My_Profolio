@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './MainPage.css';
 
 const MainPage = () => {
@@ -78,14 +79,59 @@ const MainPage = () => {
                 <div className="project-tech">
                   <span className="tech-tag">Swift</span>
                   <span className="tech-tag">JavaScript</span>
-                  <span className="tech-tag">Firebase</span>
+                  <span className="tech-tag">Firebase Authentication</span>
+                  <span className="tech-tag">NoSQL</span>
+                  <span className="tech-tag">API</span>
                 </div>
                 <div className="project-links">
                   <button className="project-link" onClick={openVideoModal}>
-                    Live Demo
+                    Demo Video
                   </button>
                   <a 
                     href="https://github.com/zhlu4172/Love-Map" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-image project-image-full">
+                <img 
+                  src={`${process.env.PUBLIC_URL}/images/showcase.png`} 
+                  alt="Image Segmentation Portal" 
+                  className="project-image-full-img"
+                />
+              </div>
+              <div className="project-content">
+                <h3 className="project-title">Image Segmentation Portal</h3>
+                <p className="project-description">
+                  Interactive web portal for image segmentation using SAM (Segment Anything Model). 
+                  Upload images and generate segmentation masks with overlay visualization. Perfect for 
+                  medical image analysis, object detection, and computer vision applications.
+                </p>
+                <div className="project-tech">
+                <span className="tech-tag">React</span>
+                <span className="tech-tag">FastAPI</span>
+                <span className="tech-tag">Gradio</span>
+                <span className="tech-tag">SAM</span>
+                <span className="tech-tag">Hugging Face</span>
+                <span className="tech-tag">Computer Vision</span>
+                <span className="tech-tag">Image Processing</span>
+                <span className="tech-tag">AI Application</span>
+                <span className="tech-tag">Cloud Inference</span>
+                </div>
+                <div className="project-links">
+                  <Link to="/segmentation" className="project-link">
+                    Open Portal ↗
+                  </Link>
+
+                <a 
+                    href="https://github.com/zhlu4172/SAM_Integration" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="project-link"

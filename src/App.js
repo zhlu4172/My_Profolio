@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import MainPage from './pages/MainPage';
 import Experience from './pages/Experience';
+import Segmentation from './pages/Segmentation';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/segmentation" element={<Segmentation />} />
         </Routes>
       </div>
     </Router>
