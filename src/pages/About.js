@@ -100,7 +100,7 @@ const About = () => {
         <div className="container">
           <div className="about-cta">
             <h2>Let's work together</h2>
-            <p>Open to interesting problems in data engineering, ML, and software — whether that's a full-time role, a collaboration, or just a good conversation.</p>
+            <p>Open to full-time work in data engineering, ML, and software.</p>
             <div className="cta-links">
               <a href="mailto:luzhuyi13169@gmail.com" className="cta-btn cta-btn--primary">
                 Email me
