@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './MainPage.css';
+import SkillRadar from '../components/SkillRadar/SkillRadar';
 
 const MainPage = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -33,24 +34,32 @@ const MainPage = () => {
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">Hello, I'm Zhuyi Lu</h1>
-            <p className="hero-subtitle">Software Engineer & ML Researcher</p>
+            <div className="hero-radar-wrapper">
+              <SkillRadar />
+            </div>
+
             <div className="hero-description">
               <p>
-                I am a software engineer and ML researcher with dual degrees from the University of Sydney: a First-Class Honours in Software Engineering and an MPhil in Computer Science specializing in machine learning and deep learning. My background spans both full-stack engineering and advanced deep learning research, allowing me to bridge practical development with innovative AI solutions.
+                I am a Software Engineer, Data Engineer, Machine Learning Researcher, and problem solver passionate about building intelligent systems that turn complex processes into scalable, practical solutions.
+                My work spans software engineering, data and cloud platforms, machine learning, and AI research. From modernizing legacy reporting systems at ANZ to developing deep learning models for medical image analysis, I enjoy working at the intersection of engineering, automation, and data-driven decision making.
               </p>
-              
               <p>
-                Currently, I work as a Junior Software Engineer at Resonate Solutions, a SaaS company, where I have spent almost a year building and enhancing client-facing features for leading brands such as Rebel, Macpac, and BCF. My role spans both frontend and backend development in an Agile, Azure-based environment, involving daily work with Vue.js, C#, MVC/MVP frameworks, SQL databases, and Azure DevOps, alongside CI/CD and cloud deployment practices.
+                At ANZ, I lead the transformation of business-critical workflows by migrating legacy VBA applications into cloud-native Python solutions on AWS. This involves designing automated ETL pipelines, building tools that replace manual reporting processes, and delivering technology solutions that balance business needs with long-term maintainability.
               </p>
-              
               <p>
-                In parallel with my industry work, I conduct research in deep learning for medical image analysis as part of my MPhil. I have end-to-end experience designing and building machine learning pipelines, from data preprocessing and augmentation, to model training, evaluation, and result interpretation, which primarily use PyTorch and Python-based ML tools. My thesis work has involved designing segmentation architectures and applying texture-based analysis for clinical prediction.
+                Previously at Resonate Solutions, I contributed to large-scale SaaS platforms used by leading retail brands, developing customer-facing features with Vue.js, TypeScript, C#, SQL, and Azure-based cloud services. Working in Agile environments strengthened my ability to deliver production-ready software while collaborating across technical and business teams.
               </p>
-              
               <p>
-                Additionally, I tutor machine learning and data science courses at the University of Sydney, where I guide students through both theory and practical implementation. This has further deepened my understanding of modern ML techniques and reinforced my ability to communicate complex technical concepts clearly. I'm a fast learner, strong communicator, and highly adaptable. Outside of work and research, I enjoy building iOS applications, which allows me to further explore software design and delivery from end to end.
+                Alongside industry work, my research focuses on deep learning and medical image analysis. I design and develop machine learning pipelines, segmentation architectures, and computer vision systems using PyTorch, with a particular interest in applying AI to real-world healthcare challenges.
+              </p>
+              <p>
+                What I bring beyond technical skills is strong communication and problem-solving. I learn quickly, stay organised, and approach complex problems by breaking them down logically and working through them step by step.
+              </p>
+              <p>
+                I am also passionate about mentoring and education. As a University of Sydney tutor, I have guided students through software engineering, machine learning, and data science projects, helping bridge the gap between theory and practical implementation.
               </p>
             </div>
+
             <div className="hero-buttons">
               <a href="#projects" className="btn btn-primary">View My Work</a>
               <button className="btn btn-secondary" onClick={openContactModal}>Contact Me</button>
@@ -147,75 +156,184 @@ const MainPage = () => {
 
       <section className="experience-section">
         <div className="container">
-          <h2 className="section-title">Professional Experience</h2>
+          <h2 className="section-title exp-title">Professional Experience</h2>
           <div className="experience-timeline">
-            <div className="timeline-item">
+
+            <div className="timeline-item timeline-item--anz">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3 className="job-title">Junior Software Engineer</h3>
-                <h4 className="company-name">Resonate Solutions</h4>
-                <p className="job-period">2025.6 - 2025.8</p>
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Experience Design Developer</h3>
+                    <div className="job-meta">
+                      <span className="company-name">ANZ</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2026.2 – 2026.9</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-location">Sydney, Australia</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Contract Full-time</span>
+                </div>
+                <div className="job-skills">
+                  {["Python", "SQL", "CI/CD", "AWS S3 & Athena", "Agile", "ETL", "Foreign Exchange (FX)"].map(s => (
+                    <span key={s} className="tech-tag">{s}</span>
+                  ))}
+                </div>
                 <ul className="job-responsibilities">
-                  <li>Engineered end-to-end software solutions for high-profile enterprise clients (Rebel, Macpac, BCF), leveraging C#, .NET, Vue.js, and SQL to meet complex and evolving business requirements</li>
-                  <li>Orchestrated deployment pipelines and environment configuration using Azure tools (App Services, DevOps), enabling efficient CI/CD and stable cloud operations</li>
-                  <li>Led feature development and system enhancements across both front-end and back-end stacks, ensuring seamless user experience and robust performance</li>
-                  <li>Drove full-cycle delivery: from technical design and implementation to debugging, peer code reviews, and production deployment</li>
-                  <li>Spearheaded improvements to internal platforms, significantly enhancing system usability, scalability, and maintainability</li>
-                  <li>Performed efficiently in Agile sprints, consistently delivering high-quality code under tight deadlines and adapting to changing client needs</li>
+                  <li>Built an automated Python pipeline that transformed FX trade reporting from a manual, error-prone process into a reliable, end-to-end system covering data cleaning, joining, calculation, and report generation.</li>
+                  <li>Designed and developed scalable ETL pipelines using Python, SQL, Amazon S3, and Athena to process and transform FX market data for reporting and analytics.</li>
+                  <li>Migrated legacy VBA applications to Python-based solutions on AWS, improving scalability, maintainability, and automation.</li>
+                  <li>Built automated data validation frameworks to improve data quality, accuracy, and operational efficiency.</li>
                 </ul>
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item timeline-item--resonate">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3 className="job-title">Software Engineer Intern</h3>
-                <h4 className="company-name">Resonate Solutions</h4>
-                <p className="job-period">2025.1 - 2025.6</p>
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Junior Software Engineer</h3>
+                    <div className="job-meta">
+                      <span className="company-name">Resonate Solutions</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2025.6 – 2025.8</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-location">Sydney, Australia</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Full-time</span>
+                </div>
+                <div className="job-skills">
+                  {["C#", ".NET", "Vue.js", "TypeScript", "SQL", "Azure", "Python", "CI/CD", "Full Stack", "Agile"].map(s => (
+                    <span key={s} className="tech-tag">{s}</span>
+                  ))}
+                </div>
                 <ul className="job-responsibilities">
-                  <li>Engineered end-to-end software solutions for high-profile enterprise clients (Rebel, Macpac, BCF), leveraging C#, .NET, Vue.js, and SQL to meet complex and evolving business requirements</li>
-                  <li>Orchestrated deployment pipelines and environment configuration using Azure tools (App Services, DevOps), enabling efficient CI/CD and stable cloud operations</li>
-                  <li>Led feature development and system enhancements across both front-end and back-end stacks, ensuring seamless user experience and robust performance</li>
-                  <li>Drove full-cycle delivery: from technical design and implementation to debugging, peer code reviews, and production deployment</li>
-                  <li>Spearheaded improvements to internal platforms, significantly enhancing system usability, scalability, and maintainability</li>
-                  <li>Performed efficiently in Agile sprints, consistently delivering high-quality code under tight deadlines and adapting to changing client needs</li>
+                  <li>Built and maintained end-to-end software features for high-profile enterprise clients (Rebel, Macpac, BCF), working closely with the team to meet changing business requirements.</li>
+                  <li>Managed Azure App Services and DevOps pipelines, improving CI/CD reliability and deployment efficiency.</li>
+                  <li>Delivered new features across full stack, focusing on smooth user experience.</li>
+                  <li>Took ownership of the full development cycle, from technical design and implementation to debugging, code reviews, and production deployment.</li>
+                  <li>Improved internal platforms by enhancing usability, scalability, and maintainability.</li>
+                  <li>Collaborated effectively in Agile sprints, consistently delivering quality work within deadlines and adjusting quickly to new client priorities.</li>
                 </ul>
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item timeline-item--resonate">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3 className="job-title">Academic Tutor</h3>
-                <h4 className="company-name">The University of Sydney</h4>
-                <p className="job-period">2024.3 - 2024.12</p>
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Software Engineer Intern</h3>
+                    <div className="job-meta">
+                      <span className="company-name">Resonate Solutions</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2024.12 – 2025.6</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-location">Sydney, Australia</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Internship</span>
+                </div>
+                <div className="job-skills">
+                  {["C#", ".NET", "Vue.js", "TypeScript", "SQL", "Azure", "Python", "CI/CD", "Full Stack", "Agile"].map(s => (
+                    <span key={s} className="tech-tag">{s}</span>
+                  ))}
+                </div>
                 <ul className="job-responsibilities">
-                  <li>Responsible for tutoring several computer science and IT courses focused on data science and machine learning in the healthcare domain</li>
-                  <li>Tutored HTIN5006: Foundations of Healthcare Data Science</li>
-                  <li>Tutored HTIN5005: Applied Healthcare Data Science</li>
-                  <li>Tutored INFO5992: Understanding IT Innovations</li>
-                  <li>Guided students through both theoretical concepts and practical implementation</li>
-                  <li>Deepened understanding of modern ML techniques and reinforced ability to communicate complex technical concepts clearly</li>
+                  <li>Built and maintained end-to-end software features for high-profile enterprise clients (Rebel, Macpac, BCF), working closely with the team to meet changing business requirements.</li>
+                  <li>Managed Azure App Services and DevOps pipelines, improving CI/CD reliability and deployment efficiency.</li>
+                  <li>Delivered new features across full stack, focusing on smooth user experience.</li>
+                  <li>Took ownership of the full development cycle, from technical design and implementation to debugging, code reviews, and production deployment.</li>
+                  <li>Improved internal platforms by enhancing usability, scalability, and maintainability.</li>
+                  <li>Collaborated effectively in Agile sprints, consistently delivering quality work within deadlines and adjusting quickly to new client priorities.</li>
                 </ul>
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item timeline-item--research">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3 className="job-title">Software Engineering Intern</h3>
-                <h4 className="company-name">HairCoSys - Hong Kong</h4>
-                <p className="job-period">2022.12 - 2023.2</p>
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Machine Learning Research Fellow</h3>
+                    <div className="job-meta">
+                      <span className="company-name">USYD & Nepean Hospital</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2023.12 – Present</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Research</span>
+                </div>
+                <div className="job-skills">
+                  {["PyTorch", "Python", "NumPy", "OpenCV", "Data Analysis", "Model Training", "Data Preprocessing", "Data Augmentation", "Texture Analysis"].map(s => (
+                    <span key={s} className="tech-tag">{s}</span>
+                  ))}
+                </div>
                 <ul className="job-responsibilities">
-                  <li>Assisted in the execution of R&D projects and attended daily standup meetings with co-workers and supervisors</li>
-                  <li>Developed strong oral communication skills in professional settings through clear and effective communication under heavy time constraints</li>
-                  <li>Developed a comprehensive data development pipeline from data extraction, blending, cleansing, and processing to model creation and result visualization</li>
-                  <li>Built an application to predict stock prices by learning from large ranges of stock data</li>
-                  <li>Worked effectively with individuals across multi-level, multi-disciplinary, and multi-cultural dimensions, understanding the value of alternate viewpoints in improving project outcomes</li>
-                  <li>Developed great interpersonal relationships with all co-workers and was asked to return to the workplace in the future</li>
+                  <li>Designed, trained, and optimised AMFA, an attention-based deep learning architecture for ultrasound sub-region segmentation, outperforming several existing baseline models.</li>
+                  <li>Independently led the full research pipeline end to end — from data labelling and preprocessing, to model architecture design, training, validation, and evaluation.</li>
+                  <li>Built reproducible research workflows in PyTorch, integrating model development, quantitative evaluation, and result interpretation for medical imaging studies.</li>
+                  <li>Collaborated with academic supervisors and clinical partners across multidisciplinary teams to align research outcomes with clinical needs.</li>
                 </ul>
               </div>
             </div>
+
+            <div className="timeline-item timeline-item--tutor">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Academic Tutor</h3>
+                    <div className="job-meta">
+                      <span className="company-name">University of Sydney</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2024.3 – 2024.12</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Part-time</span>
+                </div>
+                <ul className="job-responsibilities">
+                  <li>Tutored computer science and IT courses focused on data science and machine learning in the healthcare domain.</li>
+                  <li>HTIN5006: Foundations of Healthcare Data Science</li>
+                  <li>HTIN5005: Applied Healthcare Data Science</li>
+                  <li>INFO5992: Understanding IT Innovations</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="timeline-item timeline-item--haircosys">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h3 className="job-title">Software Engineering Intern</h3>
+                    <div className="job-meta">
+                      <span className="company-name">HairCoSys</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-period">2022.12 – 2023.2</span>
+                      <span className="meta-sep">·</span>
+                      <span className="job-location">Hong Kong</span>
+                    </div>
+                  </div>
+                  <span className="role-badge">Internship</span>
+                </div>
+                <div className="job-skills">
+                  {["Python", "Data Analysis", "Tableau", "Pandas", "Automation Scripts", "Machine Learning"].map(s => (
+                    <span key={s} className="tech-tag">{s}</span>
+                  ))}
+                </div>
+                <ul className="job-responsibilities">
+                  <li>Developed a data development pipeline from data extraction, blending, cleansing, and processing to model creation and result visualization.</li>
+                  <li>Built an application to predict stock prices by learning from a large range of stock data.</li>
+                  <li>Assisted in the execution of R&D projects and attended daily standup meetings with co-workers and supervisors.</li>
+                  <li>Developed oral communication skills in a professional setting and built strong interpersonal relationships across a multidisciplinary team.</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
