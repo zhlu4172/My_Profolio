@@ -33,7 +33,14 @@ const MainPage = () => {
       >
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Hello, I'm Zhuyi Lu</h1>
+            <div className="hero-avatar">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/professional_image.png`}
+                alt="Zhuyi Lu"
+                className="avatar-img"
+              />
+            </div>
+            <h1 className="hero-title">Hi, I'm Zhuyi (Emma) Lu</h1>
             <div className="hero-radar-wrapper">
               <SkillRadar />
             </div>
@@ -340,61 +347,72 @@ const MainPage = () => {
 
       <section className="education-section">
         <div className="container">
-          <h2 className="section-title">Education</h2>
+          <h2 className="section-title edu-title">Education</h2>
           <div className="education-grid">
-            <div className="education-card">
-              <div className="education-icon">
-                <div className="university-logo">
-                  <img 
-                    src="/images/uniLogo.webp" 
-                    alt="University of Sydney Logo" 
-                    className="logo-image"
-                  />
+
+            <div className="education-card edu--mphil">
+              <div className="edu-card-header">
+                <div className="edu-logo-wrap">
+                  <img src="/images/uniLogo.webp" alt="University of Sydney" className="edu-logo" />
+                </div>
+                <div className="edu-header-text">
+                  <span className="edu-badge">MPhil</span>
+                  <h3 className="degree-title">Master of Philosophy</h3>
+                  <p className="edu-field">Computer Science</p>
+                  <div className="edu-meta">
+                    <span className="university-name">University of Sydney</span>
+                    <span className="edu-sep">·</span>
+                    <span className="education-period">2024.3 – 2025.9</span>
+                  </div>
                 </div>
               </div>
-              <div className="education-content">
-                <h3 className="degree-title">Bachelor of Engineering Honours (Software)</h3>
-                <h4 className="university-name">University of Sydney</h4>
-                <p className="education-period">2020.2 - 2023.12</p>
-                  <ul className="education-achievements">
-                    <li>Achieved High Distinctions in key software engineering subjects including Software Development Project, Agile Practices, and Internet Software Platforms</li>
-                    <li>Continued strong performance in final year with High Distinctions in Cloud Computing and Object-Oriented Frameworks</li>
-                    <li>Developed an enhanced ultrasound segmentation model and an automated texture analysis pipeline for thesis, earning the Vern Kenna Award</li>
-                    <li>Recognised on the Dean's List for Excellence in Academic Performance in final year</li>
-                  </ul>
-                  <div className="education-highlights">
-                    <span className="highlight-tag">WAM: 79</span>
-                    <span className="highlight-tag">Honours Class I Division I</span>
-                    <span className="highlight-tag">Vern Kenna Award</span>
-                    <span className="highlight-tag">2023 Dean's List</span>
-                  </div>
+              <div className="edu-card-body">
+                <ul className="education-achievements">
+                  <li>Research fellow in the Biomedical Data Analysis and Visualisation (BDAV) Lab, in collaboration with Nepean Hospital.</li>
+                  <li>Designed and developed AMFA, an attention-based deep learning architecture for ultrasound sub-region segmentation, outperforming multiple baseline models.</li>
+                  <li>Led the full research pipeline independently — data labelling, preprocessing, architecture design, model training, validation, and clinical evaluation.</li>
+                  <li>Built reproducible PyTorch workflows for medical image analysis, with a focus on fetal brain ultrasound scan segmentation and classification.</li>
+                </ul>
+                <div className="education-highlights">
+                  <span className="highlight-tag ht--purple">Deep Learning</span>
+                  <span className="highlight-tag ht--purple">Medical Imaging</span>
+                  <span className="highlight-tag ht--purple">PyTorch</span>
+                  <span className="highlight-tag ht--purple">Ultrasound Segmentation</span>
+                </div>
               </div>
             </div>
 
-            <div className="education-card">
-              <div className="education-icon">
-                <div className="university-logo">
-                  <img 
-                    src="/images/uniLogo.webp" 
-                    alt="University of Sydney Logo" 
-                    className="logo-image"
-                  />
+            <div className="education-card edu--be">
+              <div className="edu-card-header">
+                <div className="edu-logo-wrap">
+                  <img src="/images/uniLogo.webp" alt="University of Sydney" className="edu-logo" />
+                </div>
+                <div className="edu-header-text">
+                  <span className="edu-badge">BE (Hons)</span>
+                  <h3 className="degree-title">Bachelor of Engineering Honours</h3>
+                  <p className="edu-field">Software Engineering</p>
+                  <div className="edu-meta">
+                    <span className="university-name">University of Sydney</span>
+                    <span className="edu-sep">·</span>
+                    <span className="education-period">2020.2 – 2023.12</span>
+                  </div>
                 </div>
               </div>
-              <div className="education-content">
-                <h3 className="degree-title">Master of Philosophy (Computer Science)</h3>
-                <h4 className="university-name">University of Sydney</h4>
-                <p className="education-period">2024.3 - 2025.9</p>
-                <p className="education-description">
-                Research fellow in  Biomedical Data Analysis and Visualisation (BDAV) Lab, mainly focused on ML, DL in ultrasound image segmentation and classification, fetal brain ultrasound scan. 
-                </p>
+              <div className="edu-card-body">
+                <ul className="education-achievements">
+                  <li>Achieved High Distinctions in core subjects including Software Development Project, Agile Practices, Cloud Computing, and Object-Oriented Frameworks.</li>
+                  <li>Developed an enhanced ultrasound segmentation model and an automated texture analysis pipeline for thesis, earning the Vern Kenna Award.</li>
+                  <li>Recognised on the Dean's List for Excellence in Academic Performance in final year.</li>
+                </ul>
                 <div className="education-highlights">
-                  <span className="highlight-tag">Ultrasound</span>
-                  <span className="highlight-tag">Deep Learning/Machine Learning</span>
-                  <span className="highlight-tag">BioMedical Image Analysis</span>
+                  <span className="highlight-tag ht--blue">WAM: 79</span>
+                  <span className="highlight-tag ht--blue">Honours Class I Div I</span>
+                  <span className="highlight-tag ht--blue">Vern Kenna Award</span>
+                  <span className="highlight-tag ht--blue">2023 Dean's List</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

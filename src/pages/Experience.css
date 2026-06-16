@@ -1,17 +1,17 @@
-/* Experience.css - Experience page styles */
+/* Experience Page */
 .experience-page {
-  padding-top: 70px; /* Space for fixed navigation bar */
+  padding-top: 70px;
   min-height: 100vh;
-  background: #f8fafc;
+  background: linear-gradient(160deg, #080d1a 0%, #0d1b2a 50%, #080c18 100%);
 }
 
 .page-title {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
-  color: #2d3748;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 0 2.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -21,279 +21,332 @@
   margin-bottom: 4rem;
 }
 
+/* Card */
 .experience-card {
-  background: white;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .experience-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Header */
 .experience-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
+  padding: 1.75rem 2rem;
   position: relative;
+  overflow: hidden;
 }
 
-.experience-header::before {
+.experience-header::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-.experience-header h2,
-.experience-header h3,
-.experience-header p {
+.exp-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
   position: relative;
   z-index: 1;
 }
 
-.experience-header h2 {
-  font-size: 1.5rem;
+.exp-job-title {
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.experience-header h3 {
-  font-size: 1.2rem;
-  opacity: 1;
-  margin-bottom: 0.25rem;
   color: white;
+  margin-bottom: 0.2rem;
 }
 
-.experience-header p {
+.exp-company {
   font-size: 1rem;
-  opacity: 1;
-  color: white;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.2rem;
 }
 
+.exp-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.exp-badge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  margin-top: 2px;
+}
+
+/* Per-company header backgrounds */
+.exp--anz .experience-header {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+}
+.exp--anz:hover {
+  box-shadow: 0 12px 40px rgba(52, 211, 153, 0.15);
+}
+
+.exp--resonate .experience-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+}
+.exp--resonate:hover {
+  box-shadow: 0 12px 40px rgba(96, 165, 250, 0.15);
+}
+
+.exp--research .experience-header {
+  background: linear-gradient(135deg, #2e1065 0%, #4c1d95 100%);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+}
+.exp--research:hover {
+  box-shadow: 0 12px 40px rgba(167, 139, 250, 0.15);
+}
+
+.exp--tutor .experience-header {
+  background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+}
+.exp--tutor:hover {
+  box-shadow: 0 12px 40px rgba(251, 191, 36, 0.15);
+}
+
+.exp--haircosys .experience-header {
+  background: linear-gradient(135deg, #500724 0%, #831843 100%);
+  border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+}
+.exp--haircosys:hover {
+  box-shadow: 0 12px 40px rgba(244, 114, 182, 0.15);
+}
+
+/* Content */
 .experience-content {
-  padding: 2rem;
+  padding: 1.75rem 2rem;
 }
 
 .job-description {
-  font-size: 1.1rem;
-  color: #4a5568;
-  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.5rem;
   line-height: 1.7;
 }
 
 .job-achievements {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.job-achievements h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 1rem;
+.job-achievements h4,
+.job-technologies h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.75rem;
 }
 
 .job-achievements ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .job-achievements li {
   position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: #4a5568;
-  line-height: 1.6;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .job-achievements li::before {
-  content: '•';
+  content: '▸';
   position: absolute;
   left: 0;
-  color: #48bb78;
   font-weight: bold;
-  font-size: 1.1rem;
 }
 
-.job-technologies h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 1rem;
-}
+/* Per-company bullet colour */
+.exp--anz .job-achievements li::before      { color: #34d399; }
+.exp--resonate .job-achievements li::before  { color: #60a5fa; }
+.exp--research .job-achievements li::before  { color: #a78bfa; }
+.exp--tutor .job-achievements li::before     { color: #fbbf24; }
+.exp--haircosys .job-achievements li::before { color: #f472b6; }
 
+/* Tech tags */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .tech-tag {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  padding: 6px 16px;
-  border-radius: 25px;
-  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .tech-tag:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* Skills Section */
+/* Skills section */
 .skills-section {
-  background: white;
-  padding: 4rem 0;
-  border-radius: 20px;
-  margin-top: 2rem;
+  padding: 3rem 0 4rem;
 }
 
 .skills-section .section-title {
-  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
 .skill-category {
-  background: #f8fafc;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.25s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-3px);
 }
 
 .skill-category h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
   text-align: center;
   position: relative;
+  padding-bottom: 0.75rem;
 }
 
 .skill-category h3::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 32px;
+  height: 2px;
   border-radius: 2px;
 }
+
+/* Per-category accent colours */
+.cat--software h3        { color: #60a5fa; }
+.cat--software h3::after { background: #60a5fa; }
+.cat--software .skill-item:hover { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+
+.cat--data h3        { color: #34d399; }
+.cat--data h3::after { background: #34d399; }
+.cat--data .skill-item:hover { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+
+.cat--ai h3        { color: #a78bfa; }
+.cat--ai h3::after { background: #a78bfa; }
+.cat--ai .skill-item:hover { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+
+.cat--tools h3        { color: #fbbf24; }
+.cat--tools h3::after { background: #fbbf24; }
+.cat--tools .skill-item:hover { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
 
 .skill-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   justify-content: center;
 }
 
 .skill-item {
-  background: white;
-  color: #4a5568;
-  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px 13px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
 
 .skill-item:hover {
-  background: #667eea;
-  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-/* Responsive design */
+/* Responsive */
 @media (max-width: 768px) {
   .experience-page {
     padding-top: 60px;
   }
-  
+
   .page-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    padding: 2rem 0 1.5rem;
   }
-  
+
   .experience-header {
-    padding: 1.5rem;
+    padding: 1.25rem 1.25rem;
   }
-  
-  .experience-header h2 {
-    font-size: 1.3rem;
+
+  .exp-header-top {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
-  .experience-header h3 {
-    font-size: 1.1rem;
+
+  .exp-badge {
+    align-self: flex-start;
   }
-  
+
   .experience-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .skill-category {
-    padding: 1.5rem;
-  }
-  
-  .tech-tags {
-    justify-content: center;
-  }
-  
-  .skill-items {
-    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .page-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  
-  .experience-header {
-    padding: 1rem;
+
+  .exp-job-title {
+    font-size: 1.1rem;
   }
-  
-  .experience-content {
-    padding: 1rem;
-  }
-  
+
   .skill-category {
-    padding: 1rem;
-  }
-  
-  .tech-tag {
-    padding: 4px 12px;
-    font-size: 0.85rem;
-  }
-  
-  .skill-item {
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 1.25rem;
   }
 }

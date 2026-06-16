@@ -13,16 +13,24 @@ const Navigation = () => {
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
             >
-              Main Page
+              Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link 
-              to="/experience" 
+            <Link
+              to="/about"
+              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+            >
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/experience"
               className={`nav-link ${location.pathname === '/experience' ? 'active' : ''}`}
             >
               Experience
