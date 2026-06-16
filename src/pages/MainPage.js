@@ -112,7 +112,7 @@ const MainPage = () => {
               <div className="project-image project-image-full">
                 <img 
                   src={`${process.env.PUBLIC_URL}/images/showcase.png`} 
-                  alt="Image Segmentation Portal" 
+                  alt="Segmentation Portal Screenshot"
                   className="project-image-full-img"
                 />
               </div>
