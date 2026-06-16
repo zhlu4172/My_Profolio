@@ -29,7 +29,7 @@ const About = () => {
           <div className="about-hero-inner">
             <div className="about-photo-wrap">
               <img
-                src="/images/professional_image.PNG"
+                src={`${process.env.PUBLIC_URL}/images/professional_image.PNG`}
                 alt="Zhuyi (Emma) Lu"
                 className="about-photo"
               />
@@ -86,7 +86,7 @@ const About = () => {
             </div>
             <div className="life-photo-wrap">
               <img
-                src="/images/lifestyle_image.png"
+                src={`${process.env.PUBLIC_URL}/images/lifestyle_image.png`}
                 alt="Life outside work"
                 className="life-photo"
               />

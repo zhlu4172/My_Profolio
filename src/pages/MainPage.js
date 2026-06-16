@@ -353,7 +353,7 @@ const MainPage = () => {
             <div className="education-card edu--mphil">
               <div className="edu-card-header">
                 <div className="edu-logo-wrap">
-                  <img src="/images/uniLogo.webp" alt="University of Sydney" className="edu-logo" />
+                  <img src={`${process.env.PUBLIC_URL}/images/uniLogo.webp`} alt="University of Sydney" className="edu-logo" />
                 </div>
                 <div className="edu-header-text">
                   <span className="edu-badge">MPhil</span>
@@ -385,7 +385,7 @@ const MainPage = () => {
             <div className="education-card edu--be">
               <div className="edu-card-header">
                 <div className="edu-logo-wrap">
-                  <img src="/images/uniLogo.webp" alt="University of Sydney" className="edu-logo" />
+                  <img src={`${process.env.PUBLIC_URL}/images/uniLogo.webp`} alt="University of Sydney" className="edu-logo" />
                 </div>
                 <div className="edu-header-text">
                   <span className="edu-badge">BE (Hons)</span>
