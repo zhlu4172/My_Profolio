@@ -55,4 +55,4 @@ public/
 
 | Variable | Description |
 |---|---|
-| `GROQ_API_KEY` | Groq API key (set in Vercel dashboard under Settings → Environment Variables) |
+| `GROQ_API_KEY` | Groq API key for the AI chat features |
