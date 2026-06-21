@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SKILLS } from "./skills";
 import "./SkillRadar.css";
@@ -10,6 +10,8 @@ const MAX_R = 115;
 const LABEL_R = 152;
 const LINE_HEIGHT = 17;
 const RINGS = [0.25, 0.5, 0.75, 1];
+const CYCLE_INTERVAL = 2500;
+const LOCK_TIMEOUT = 60000;
 
 function pt(angle, r) {
   return { x: CX + r * Math.cos(angle), y: CY + r * Math.sin(angle) };
@@ -30,7 +32,30 @@ function ringPoints(fraction) {
 }
 
 export default function SkillRadar() {
-  const [activeKey, setActiveKey] = useState(null);
+  const [autoKey, setAutoKey] = useState(SKILLS[0].key);
+  const [lockedKey, setLockedKey] = useState(null);
+  const [hoverKey, setHoverKey] = useState(null);
+  const lockTimerRef = useRef(null);
+
+  // Auto-cycle when not locked and not hovering
+  useEffect(() => {
+    if (lockedKey || hoverKey) return;
+    const id = setInterval(() => {
+      setAutoKey((prev) => {
+        const i = SKILLS.findIndex((s) => s.key === prev);
+        return SKILLS[(i + 1) % SKILLS.length].key;
+      });
+    }, CYCLE_INTERVAL);
+    return () => clearInterval(id);
+  }, [lockedKey, hoverKey]);
+
+  const handleClick = (key) => {
+    setLockedKey(key);
+    clearTimeout(lockTimerRef.current);
+    lockTimerRef.current = setTimeout(() => setLockedKey(null), LOCK_TIMEOUT);
+  };
+
+  const activeKey = hoverKey ?? lockedKey ?? autoKey;
   const active = SKILLS.find((s) => s.key === activeKey);
 
   const dataPoints = SKILLS.map((s) => {
@@ -110,8 +135,9 @@ export default function SkillRadar() {
               d={`M ${CX} ${CY} L ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2} Z`}
               fill={isActive ? s.color + "18" : "transparent"}
               style={{ cursor: "pointer", transition: "fill 0.25s" }}
-              onMouseEnter={() => setActiveKey(s.key)}
-              onMouseLeave={() => setActiveKey(null)}
+              onMouseEnter={() => setHoverKey(s.key)}
+              onMouseLeave={() => setHoverKey(null)}
+              onClick={() => handleClick(s.key)}
             />
           );
         })}
@@ -124,8 +150,9 @@ export default function SkillRadar() {
           return (
             <g
               key={s.key + "-label"}
-              onMouseEnter={() => setActiveKey(s.key)}
-              onMouseLeave={() => setActiveKey(null)}
+              onMouseEnter={() => setHoverKey(s.key)}
+              onMouseLeave={() => setHoverKey(null)}
+              onClick={() => handleClick(s.key)}
               style={{ cursor: "pointer" }}
             >
               {s.label.map((line, li) => {
