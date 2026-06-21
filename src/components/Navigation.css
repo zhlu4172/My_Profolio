@@ -74,6 +74,18 @@
   border-radius: 1px;
 }
 
+.nav-link--ai {
+  background: rgba(167, 139, 250, 0.1);
+  color: #7c3aed;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+}
+
+.nav-link--ai:hover,
+.nav-link--ai.active {
+  background: rgba(167, 139, 250, 0.18);
+  color: #6d28d9;
+}
+
 
 @media (max-width: 768px) {
   .nav-container {

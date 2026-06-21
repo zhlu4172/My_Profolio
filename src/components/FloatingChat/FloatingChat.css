@@ -1,0 +1,330 @@
+.fc-root {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ── Trigger button ─────────────────────────── */
+.fc-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.fc-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.55);
+}
+
+.fc-trigger--open {
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.fc-trigger-icon {
+  font-size: 1.2rem;
+}
+
+.fc-trigger-icon--chat { display: block; }
+.fc-trigger-icon--close { display: none; }
+
+.fc-trigger--open .fc-trigger-icon--chat { display: none; }
+.fc-trigger--open .fc-trigger-icon--close { display: block; }
+
+.fc-trigger-label {
+  white-space: nowrap;
+}
+
+/* ── Chat panel ──────────────────────────────── */
+.fc-panel {
+  width: 360px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(167, 139, 250, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  /* Hidden state */
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fc-panel--open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header */
+.fc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.fc-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.fc-header-icon {
+  font-size: 1.4rem;
+  color: #a78bfa;
+}
+
+.fc-header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+}
+
+.fc-header-sub {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.fc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.fc-skillmatch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.fc-skillmatch-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #a78bfa;
+}
+
+.fc-skillmatch-btn .material-symbols-rounded {
+  font-size: 1.1rem;
+}
+
+.fc-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.fc-close-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+}
+
+.fc-close-btn .material-symbols-rounded {
+  font-size: 1.1rem;
+}
+
+/* Messages */
+.fc-messages {
+  flex: 1;
+  min-height: 260px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167, 139, 250, 0.2) transparent;
+}
+
+.fc-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.fc-empty p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fc-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fc-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+.fc-chip:hover {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.35);
+  color: #c4b5fd;
+}
+
+.fc-msg {
+  max-width: 85%;
+  padding: 9px 13px;
+  border-radius: 14px;
+  font-size: 0.865rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.fc-msg--user {
+  align-self: flex-end;
+  background: rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  border-bottom-right-radius: 3px;
+}
+
+.fc-msg--assistant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.78);
+  border-bottom-left-radius: 3px;
+}
+
+.fc-msg--typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 16px;
+}
+
+.fc-msg--typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.6);
+  display: inline-block;
+  animation: fc-bounce 1.2s infinite ease-in-out;
+}
+
+.fc-msg--typing span:nth-child(2) { animation-delay: 0.2s; }
+.fc-msg--typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fc-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* Input */
+.fc-input-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fc-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.fc-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.fc-input:focus {
+  border-color: rgba(167, 139, 250, 0.5);
+}
+
+.fc-send {
+  background: #7c3aed;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.fc-send:hover:not(:disabled) {
+  background: #6d28d9;
+}
+
+.fc-send:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fc-send .material-symbols-rounded {
+  font-size: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .fc-root {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .fc-panel {
+    width: calc(100vw - 32px);
+  }
+}

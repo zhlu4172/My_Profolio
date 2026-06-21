@@ -36,6 +36,14 @@ const Navigation = () => {
               Experience
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              to="/ai-tools"
+              className={`nav-link nav-link--ai ${location.pathname === '/ai-tools' ? 'active' : ''}`}
+            >
+              AI Toolbox
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
